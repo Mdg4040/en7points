@@ -1,41 +1,64 @@
+html{
+    --couleur:rgb(110,1,1);
+    --couleur2:rgb(32,25,25);
+}
+
 *{
     color: white;
     margin-bottom: 0;
     font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, serif;
     box-sizing: border-box;
     
 }
 body{
-    background-image: url(img\image.jpg);
-    background-color: rgb(32, 25, 25);
+    background-color: var(--couleur2);
     
 }
 /*--------------------------------------------l'en tete---------------------------------------------*/
 .header{
     display: flex;
     width: 100%;
-    background-color:rgb(110, 1, 1);
+    background-color:var(--couleur);
     position: fixed;
     top: 0; 
+    left: 0;
     height: 100px;
 }
 .logo{
-    width: 30%;  
+    width: 55%;  
     padding: 10px 0 0 150px;
 }
 .logo img{
     width:130px;
 }
 .nav{
-    width: 70%;
+    width: 40%;
     text-align: center;
     padding-top: 18px;
-   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.lien hr{
+    width: 30px;
+    margin-top: 2.5px;
+    transition: width .2s;
 }
 .nav a{
     text-decoration: none;
     margin:10px;
+    
+}
+.nav hr:hover{
+    cursor: pointer;
+    width: 60px;
+   background-color:var(--couleur2);
+}
+.lien a:hover{
+    
 }
 @media screen and (max-width:980px) {
     .logo{
@@ -43,7 +66,8 @@ body{
         padding-left: 10px;
     }
     .nav{
-        text-align: right;
+       width: 80%; 
+       padding-left: 19px;
     }
 }
 /*----------------------------le corps avec toutes les astuces----------------------------*/
@@ -51,27 +75,25 @@ main{
     margin-top: 10px;
 
 }
-/*titre-gen{
-    margin-left: 20px;
-    padding-top: 50px;
-    font-size: 65px;
-}
-.titre-scdn{
-    font-size: 42px;
-    margin-left: 20px;
-}
-.description{
-    margin-left: 20px;
-    margin-right: 50px;
-}*/
-.toutes-astuces{
+.containers{
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 100px;
+    animation: debut 5s;
    
+}
+@keyframes debut {
+    from{
+        transform: translateY(-700px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: .8;
+    }
 }
 .astuces{
     width: 350px;
@@ -80,30 +102,20 @@ main{
     box-shadow: 30px rgba(110, 1, 1, .5);*/
     margin: 30px 0 40px;
     margin: 10px 12.5px 10px ;
+    transition: transform .5s;
 }
 .image-astuce img{
     width: 95%;
     height: 200px;
     padding-top: 8px;
     padding-right: 0;
+    
  }
  .description-astuce{
     width: 100%;
     height: 60px;
     margin-left: 0;
     
- }
- @keyframes zoom {
-    from{
-      transform: scale(1.10);
-    }
-    to{
-        transform: scale(1.20);
-    }
- }
- .image-astuce img:hover{
-    /*animation: zoom 2s;
-   animation: zoom 3s infinite;*/
  }
  .description-astuce a{
     text-decoration: none;
@@ -112,7 +124,7 @@ main{
     text-align: left;
    }
 .astuces:hover{
-    animation: zoom 3s infinite;
+    transform: scale(1.10);
 }
 .description-astuce a:hover{
     text-decoration: underline;
@@ -129,6 +141,7 @@ h2{
     height: 400px;
     width:100%;
     margin-left: 2px;
+    transform: none;
 }
 .image-astuce img{
     width: 96%;
@@ -146,33 +159,56 @@ h2{
 }
 }
 /*-------------------------------------------------le corps de l'astuce------------------------------------------------------------*/
-
-.debut img{
+.container{
+    margin: 40px 160px 0 130px ;
+}
+.titre-gen{
+    /*margin-left: 20px;*/
+    padding-top: 50px;
+    font-size: 45px;
+}
+article{
+    padding-top: 20px;
+}
+.texte{
+    font-size: 20px;
+}
+.image-text{
     width: 60%;
-    height: 350px;
-    margin-left: 70px;
+    height: auto;
+    margin-left: 80px;
     margin-top: 15px;
 }
-.debut h1{
-    width: 100%;
-    margin-top:10px px;
+.titre-scdn{
+    font-size: 40px;
+    font-weight: bold;
 }
-.debut h2{
-    margin-top: 5px;
+.titre-trs{
+    font-size: 25px;
+    font-weight: bold;
 }
-/*-------------------------------------------Les listes----------------------------------------------*/
-.liste h3{
-    font-size: 30px;
-}
-.liste p{
-    margin-left: 50px;
+@media screen and (max-width:980px) {
+    .container{
+        margin: 20px 20px;
+    }
+    .titre-gen{
+        font-size: 38px;
+    }
+    .image-text{
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+    .titre-scdn{
+        font-size: 32px;
+    }
+    
 }
 /*------------------------------------le footer----------------------------------------------------------*/
 .footer{
-    background-color: rgb(110, 1, 1);
-    width:100%;
-    height: 125px;
-    margin-top: 50px; 
+    background-color: var(--couleur);
+    margin:50px 0 0 0 ;
+    height: 100px;
 }
 .footer-texts{ 
     display: flex;
